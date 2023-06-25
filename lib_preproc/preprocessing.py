@@ -1,4 +1,14 @@
 import re
+import nltk
+from nltk.corpus import stopwords
+
+nltk.download('stopwords')
+all_stopwords = stopwords.words('english')
+all_stopwords.remove('not')
+
+def get_version():
+    with open("VERSION", "r") as version_file:
+        return version_file.read().strip()
 
 def process_review(review: str):
     review = re.sub('[^a-zA-Z]', ' ', review)

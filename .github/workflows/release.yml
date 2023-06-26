@@ -20,8 +20,7 @@ jobs:
       - name: Publish to PyPI
         if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
         env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
         run: twine upload dist/*
       - name: Bump version
         run: echo "${{ github.ref }}" | sed -E 's/refs\/tags\///' > VERSION

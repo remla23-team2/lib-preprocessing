@@ -1,5 +1,6 @@
 import re
 import nltk
+import pkg_resources
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
@@ -9,9 +10,15 @@ all_stopwords.remove('not')
 
 ps = PorterStemmer()
 
-def get_version():
-    with open("VERSION", "r") as version_file:
-        return version_file.read().strip()
+# def get_version():
+#     with open("VERSION", "r") as version_file:
+#         return version_file.read().strip()
+    
+def get_version(package_name):
+    try:
+        return pkg_resources.get_distribution(package_name).version
+    except pkg_resources.DistributionNotFound:
+        return None
 
 def process_review(review: str):
     review = re.sub('[^a-zA-Z]', ' ', review)

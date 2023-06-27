@@ -15,4 +15,8 @@ setup(
     long_description_content_type="text/markdown",
     author='remla23_team2',
     license='MIT',
+    install_requires=[
+        'nltk',
+        're',
+    ],
 )

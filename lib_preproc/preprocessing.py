@@ -1,10 +1,13 @@
 import re
 import nltk
 from nltk.corpus import stopwords
+from nltk.stem.porter import PorterStemmer
 
 nltk.download('stopwords')
 all_stopwords = stopwords.words('english')
 all_stopwords.remove('not')
+
+ps = PorterStemmer()
 
 def get_version():
     with open("VERSION", "r") as version_file:

@@ -1,1 +1,1 @@
-from .preprocessing import process_review, get_version
+from .preprocessing import process_review, __version__

@@ -14,7 +14,7 @@ class VersionUtil:
     def __init__(self) -> None:
         pass
 
-    def get_version():
+    def get_version(self):
         try:
             return pkg_resources.get_distribution("lib_preprocessing_REMLA23_team2").version
         except pkg_resources.DistributionNotFound:
